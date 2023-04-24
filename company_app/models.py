@@ -6,7 +6,7 @@ class Employee(models.Model):
     surname = models.CharField(max_length=100)
     photo = models.ImageField(max_length=100)
     position = models.CharField(max_length=200)
-    salary = models.CharField(max_length=100)
+    salary = models.IntegerField()
     age = models.CharField(max_length=100)
     department = models.ForeignKey('Department', on_delete=models.CASCADE)
 

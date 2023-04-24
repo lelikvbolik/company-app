@@ -13,7 +13,7 @@ class EmployeeViewSetPagination(PageNumberPagination):
 
 class EmployeeViewSet(viewsets.ModelViewSet):
     pagination_class = EmployeeViewSetPagination
-    queryset = Employee.objects.all().annotate(employee_count=Count("employees"), salary_count=Count("salaries"))
+    queryset = Employee.objects.annotate(employee_count=Count("id", distinct=True), salary_count=Count("salary", distinct=True))
     serializer_class = EmployeeSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['last_name', 'department_id']

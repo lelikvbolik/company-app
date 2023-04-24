@@ -1,17 +1,17 @@
 from rest_framework import serializers
-from rest_framework.serializers import ModelSerializer
 
 from .models import Employee, Department
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Employee
         fields = '__all__'
 
 class DepartmentSerializer(serializers.ModelSerializer):
-    employee_count = serializers.IntegerField()
-    salary_count = serializers.IntegerField()
+    employee_count = serializers.IntegerField(read_only=True)
+    salary_count = serializers.IntegerField(read_only=True)
     class Meta:
         model = Department
-        fields = ['id', 'name', 'connection']
+        fields = '__all__'

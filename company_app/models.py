@@ -10,18 +10,12 @@ class Employee(models.Model):
     age = models.CharField(max_length=100)
     department = models.ForeignKey('Department', on_delete=models.CASCADE)
 
-    class Meta:
-        ordering = ["last_name"]
-
     def __str__(self):
         return self.last_name
 
 class Department(models.Model):
     name = models.CharField(max_length=200, help_text='Enter name department')
     connection = models.CharField(max_length=200, help_text="Enter connection employee or department director")
-
-    class Meta:
-        ordering = ["name"]
 
     def __str__(self):
         return self.name

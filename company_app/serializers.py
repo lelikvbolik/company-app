@@ -10,6 +10,8 @@ class EmployeeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DepartmentSerializer(serializers.ModelSerializer):
+    employee_count = serializers.IntegerField()
+    salary_count = serializers.IntegerField()
     class Meta:
         model = Department
-        fields = '__all__'
+        fields = ['id', 'name', 'connection']
